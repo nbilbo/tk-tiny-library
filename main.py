@@ -9,5 +9,6 @@ if __name__ == '__main__':
     db_path = Path('./db.json')
     model = Model(db_path)
     application = Application()
+    application.set_database_label_text(model.db_path.name)
     controller = Controller(application, model)
     application.mainloop()

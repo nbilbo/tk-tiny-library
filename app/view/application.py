@@ -176,6 +176,10 @@ class Application(ttk.Window):
         details.insert_book_edition(book.get('book_edition'))
         details.insert_author_name(book.get('author_name'))
 
+    def set_database_label_text(self, text: str) -> None:
+        self.books_page.database_label.config(text=text)
+        self.home_page.database_label.config(text=text)
+
     @property
     def zoom_in_button(self) -> ttk.Button:
         return self.toolbar.zoom_in_button
