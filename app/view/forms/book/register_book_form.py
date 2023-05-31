@@ -1,7 +1,6 @@
 import ttkbootstrap as ttk
-from PIL import Image
 
-from app import constants
+from app import constants, utils
 
 from .default_book_form import DefaultBookForm
 
@@ -11,8 +10,8 @@ class RegisterBookForm(DefaultBookForm):
         super().__init__(*args, **kwargs)
         self.title_label.config(text='Register Book Formulary')
 
-        self.save_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'save.png').resize((25, 25))
+        self.save_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'save.png', (25, 25)
         )
 
         self.save_button = ttk.Button(self.footer)

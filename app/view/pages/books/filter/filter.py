@@ -1,17 +1,16 @@
 from typing import Optional
 
 import ttkbootstrap as ttk
-from PIL import Image
 
-from app import constants
+from app import constants, utils
 
 
 class Filter(ttk.Frame):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.search_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'search.png').resize((25, 25))
+        self.search_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'search.png', (25, 25)
         )
 
         self.search_entry = ttk.Entry(self)

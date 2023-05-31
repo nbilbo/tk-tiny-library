@@ -1,7 +1,6 @@
 import ttkbootstrap as ttk
-from PIL import Image
 
-from app import constants
+from app import constants, utils
 
 
 class SideBar(ttk.Frame):
@@ -9,14 +8,16 @@ class SideBar(ttk.Frame):
         super().__init__(*args, **kwargs)
         self.config(padding=5)
 
-        self.navigation_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'navigation.png').resize((25, 25))
+        self.navigation_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'navigation.png', (25, 25)
         )
-        self.home_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'index.png').resize((50, 50))
+
+        self.home_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'index.png', (50, 50)
         )
-        self.book_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'book.png').resize((50, 50))
+
+        self.book_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'book.png', (50, 50)
         )
 
         self.title_label = ttk.Label(self)

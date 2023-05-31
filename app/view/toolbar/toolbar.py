@@ -1,7 +1,6 @@
 import ttkbootstrap as ttk
-from PIL import Image
 
-from app import constants
+from app import constants, utils
 
 
 class Toolbar(ttk.Frame):
@@ -9,16 +8,16 @@ class Toolbar(ttk.Frame):
         super().__init__(*args, **kwargs)
         self.config(padding=5)
 
-        self.zoom_in_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'zoom-in.png').resize((25, 25))
+        self.zoom_in_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'zoom-in.png', (25, 25)
         )
-        self.zoom_out_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'zoom-out.png').resize((25, 25))
+
+        self.zoom_out_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'zoom-out.png', (25, 25)
         )
-        self.toggle_theme_icon = ttk.ImageTk.PhotoImage(
-            Image.open(constants.ICONS_DIR / 'toggle-theme.png').resize(
-                (25, 25)
-            )
+
+        self.toggle_theme_icon = utils.load_image_tk(
+            constants.ICONS_DIR / 'toggle-theme.png', (25, 25)
         )
 
         self.toggle_theme_button = ttk.Button(self)
